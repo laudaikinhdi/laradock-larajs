@@ -1315,7 +1315,9 @@ USER root
 # Clean up
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    rm /var/log/lastlog /var/log/faillog
+    rm /var/log/lastlog /var/log/faillog && \
+    mkdir -p /var/www/letsencrypt && \
+    chmod -R 777 /var/www/letsencrypt
 
 # Set default work directory
 WORKDIR /var/www
